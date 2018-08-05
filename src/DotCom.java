@@ -1,26 +1,32 @@
 import java.util.ArrayList;
 
-public class DotCom {
-
+class DotCom {
+    private String name;
     private ArrayList<String> locationCells;
 
+    protected DotCom(String name) {
+        this.name = name;
+    }
 
-    public void setLocationCells(ArrayList<String> location) {
+    protected void setLocationCells(ArrayList<String> location) {
         locationCells = location;
     }
 
-    public String checkYourSelf(String userGuess) {
+    protected String checkYourSelf(String userGuess) {
 
+        System.out.println("userGuess = " + userGuess);
+        String result = "Blunder";
         int index = locationCells.indexOf(userGuess);
 
         if (index >= 0){
             locationCells.remove(index);
+            System.out.println("isEmpty = " + locationCells.isEmpty());
             if (locationCells.isEmpty()){
-                return "Потопил";
+                result = "Потопил";
             } else {
-                return "Попал";
+                result = "Попал";
             }
         }
-        return "Промах";
+        return result;
     }
 }
