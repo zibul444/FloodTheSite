@@ -1,10 +1,15 @@
+import java.util.ArrayList;
+
 public class SimpleDotComTesrDrive {
     public static void main(String[] args) {
-        SimpleDotCom dotCom = new SimpleDotCom();
+        DotCom dotCom = new DotCom();
 
-        int[] location = {2, 3, 4};
+        ArrayList<String> location = new ArrayList<>(3);
+        for (int i = 0; i < 3; i++) {
+            location.add(i + "");
+        }
         dotCom.setLocationCells(location);
-        String userGuess = "3";
+        String userGuess = "2";
         String result = dotCom.checkYourSelf(userGuess);
 
         String testResult = "Неудача";

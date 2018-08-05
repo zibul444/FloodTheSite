@@ -1,20 +1,24 @@
 
+import java.util.ArrayList;
 import java.util.Random;
 
-public class SimpleDotComGame {
+public class DotComGame {
     public static void main(String[] args) {
         System.out.println(" Добро пожаловать в игру \"Потопи сайт\"");
         System.out.println(" Правила просты: найди сайт, спрятанный в ячейках под номерами от 0-6. ");
 
-        SimpleDotCom dotCom = new SimpleDotCom();
+        DotCom dotCom = new DotCom();
         boolean isAlive = true;
-        String result = "";
+        String result;
         int numberOfGuess = 0;
 
         GameHelper helper = new GameHelper();
 
         int randomInt = new Random().nextInt(5);
-        int[] dot = new int[] {randomInt, randomInt+1, randomInt+2};
+        ArrayList<String> dot = new ArrayList<>(3);
+        for (int i = 0; i < 3; i++) {
+            dot.add(randomInt + i + "");
+        }
         dotCom.setLocationCells(dot);
 
         while (isAlive) {

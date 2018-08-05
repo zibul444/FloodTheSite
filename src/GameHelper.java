@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class GameHelper {
-    ArrayList<Integer> steps = new ArrayList<>();
+//    ArrayList<Integer> steps = new ArrayList<>();
 
     public String getUserInput(String prompt){
         String inputLine = null;
@@ -15,13 +15,13 @@ public class GameHelper {
         }catch (IOException e){
             System.out.println("IOException " + e);
         }
-        for (int step : steps) {
-            if (step == Integer.parseInt(inputLine)) {
-                System.out.println("Уже было.");
-                getUserInput(prompt);
-            }
-        }
-        steps.add(Integer.parseInt(inputLine));
+//        for (int step : steps) {
+//            if (step == Integer.parseInt(inputLine)) {
+//                System.out.println("Уже было.");
+//                getUserInput(prompt);
+//            }
+//        }
+//        steps.add(Integer.parseInt(inputLine));
         return inputLine;
     }
 }
