@@ -132,7 +132,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SimpleDotComGame">
+  <component name="RunManager">
     <configuration name="DotComGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DotComGame" />
       <module name="FloodTheSite" />
@@ -185,12 +185,13 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.SimpleDotComGame" />
+      <item itemvalue="Application.DotComGame" />
       <item itemvalue="Application.SimpleDotComTesrDrive" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SimpleDotComGame" />
+        <item itemvalue="Application.SimpleDotComTesrDrive" />
+        <item itemvalue="Application.DotComGame" />
         <item itemvalue="Application.SimpleDotComTesrDrive" />
       </list>
     </recent_temporary>
