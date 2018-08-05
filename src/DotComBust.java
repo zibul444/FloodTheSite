@@ -35,10 +35,10 @@ class DotComBust {
         String result = "Blunder";
         for (DotCom dotComToTest : dotComList) {
             result = dotComToTest.checkYourSelf(userGuess);
-            if ("Потопил".equals(result)) {
+            if (result.contains("Потопил")) {
                 dotComList.remove(dotComToTest);
                 break;
-            } else if ("Попал".equals(result)) {
+            } else if (result.contains("Попал")) {
                 break;
             }
         }
@@ -53,7 +53,7 @@ class DotComBust {
             System.out.println(" Your account is" + numOfGuesses);
         } else {
             System.out.println("My grandmother plays better than you...");
-            System.out.println(" Your account is" + numOfGuesses);
+            System.out.println(" Your account is " + numOfGuesses + "!");
 
         }
     }

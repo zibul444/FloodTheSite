@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 class GameHelper {
-    private final String alfabet = "abcdefg";
+    private final String alphabet = "abcdefg";
     private final byte gridLength = 7;
     private final byte gridSize = (byte)(gridLength * gridLength);
     private int[] grid = new int[gridSize];
     private byte comCount = 0;
     private Random random = new Random();
 
-    protected String getUserInput(String prompt){
+    String getUserInput(final String prompt){
         String inputLine = null;
         System.out.print(prompt + " ");
 
@@ -26,9 +26,9 @@ class GameHelper {
         return inputLine.toLowerCase();
     }
 
-    protected ArrayList<String> placeDotCom(int comSize) {
+    ArrayList<String> placeDotCom(final int comSize) {
         ArrayList<String> alphaCells = new ArrayList<>();
-        String [] alphacoords = new String[comSize]; //182 стр - разобраться
+//        String [] alphaСoords = new String[comSize]; //182
         String temp;
         int[] coords = new int[comSize];
         short attempts = 0;
@@ -61,18 +61,18 @@ class GameHelper {
             }
         }
 
-        byte x = 0;
         byte row;
         byte column;
+        byte x = 0;
         while (x < comSize){
             grid[coords[x]] = 1;
             row = (byte) (coords[x] / gridLength);
             column = (byte) (coords[x] % gridLength);
-            temp = String.valueOf(alfabet.charAt(column));
+            temp = String.valueOf(alphabet.charAt(column));
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-//            System.out.println(" cord " + x + " = " + alphaCells.get(x-1)); // Chit
+            System.out.println(" cord " + x + " = " + alphaCells.get(x-1)); // Chit
         }
         return alphaCells;
     }
