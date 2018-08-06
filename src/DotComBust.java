@@ -54,7 +54,6 @@ class DotComBust {
         } else {
             System.out.println("My grandmother plays better than you...");
             System.out.println(" Your account is " + numOfGuesses + "!");
-
         }
     }
 }
