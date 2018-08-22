@@ -4,6 +4,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ *  class Helper
+ */
 class GameHelper {
     private final String alphabet = "abcdefg";
     private final byte gridLength = 7;
@@ -12,7 +15,12 @@ class GameHelper {
     private byte comCount = 0;
     private Random random = new Random();
 
-    String getUserInput(final String prompt){
+    /**
+     *
+     * @param prompt    принимаем пользовательские инструкции
+     * @return          возвращаем пользовательский ввод
+     */
+    protected String getUserInput(final String prompt){
         String inputLine = null;
         System.out.print(prompt + " ");
 
@@ -26,7 +34,12 @@ class GameHelper {
         return inputLine.toLowerCase();
     }
 
-    ArrayList<String> placeDotCom(final int comSize) {
+    /**
+     *
+     * @param comSize размер сайта
+     * @return возвращаем персональное место на игровом поле для нового сайта
+     */
+    protected ArrayList<String> placeDotCom(final int comSize) {
         ArrayList<String> alphaCells = new ArrayList<>();
 //        String [] alphaСoords = new String[comSize]; //182
         String temp;

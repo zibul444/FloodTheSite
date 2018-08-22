@@ -1,11 +1,18 @@
 
 import java.util.ArrayList;
 
+/**
+ * Игровой класс
+ */
 class DotComBust {
     private GameHelper helper = new GameHelper();
     private ArrayList<DotCom> dotComList = new ArrayList<>(3);
     private byte numOfGuesses = 0;
 
+    /**
+     * main метод
+     * @param args
+     */
     public static void main(String[] args) {
         DotComBust game = new DotComBust();
         game.setUpGame();
@@ -13,6 +20,10 @@ class DotComBust {
         game.finishGame();
     }
 
+    /**
+     * Метод инициализации игры.
+     * Создаем сайты, размещаем их на игровом поле.
+     */
     private void setUpGame(){
         for (int i = 1; i <= 3; i++) {
             dotComList.add(new DotCom(i + ".com"));
@@ -23,6 +34,9 @@ class DotComBust {
         }
     }
 
+    /**
+     * Игровой цикл
+     */
     private void startPlaying(){
         while (!dotComList.isEmpty()){
             String userMove = helper.getUserInput("Make your move:");
@@ -30,6 +44,10 @@ class DotComBust {
         }
     }
 
+    /**
+     * Проверка Хода пользователя по всем имеющимся сайтам
+     * @param userGuess
+     */
     private void checkUserGuess(String userGuess){
         numOfGuesses++;
         String result = "Blunder";
@@ -45,15 +63,18 @@ class DotComBust {
         System.out.println(result);
     }
 
+    /**
+     * Конец игры, вывод результатов.
+     */
     private void finishGame(){
         System.out.println("Game over, mission accomplished.");
 
         if (numOfGuesses < 20){
             System.out.println(" Congratulations, good game!!!");
-            System.out.println(" Your account is" + numOfGuesses);
+            System.out.println(" Your score is " + numOfGuesses + "!");
         } else {
             System.out.println("My grandmother plays better than you...");
-            System.out.println(" Your account is " + numOfGuesses + "!");
+            System.out.println(" Your score is " + numOfGuesses + "...");
         }
     }
 }

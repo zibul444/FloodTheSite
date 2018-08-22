@@ -1,18 +1,34 @@
 import java.util.ArrayList;
 
+/**
+ * Описание свойств класса DotCom
+ */
 class DotCom {
     private final String name;
     private ArrayList<String> locationCells;
 
-    DotCom(final String name) {
+    /**
+     *
+     * @param name имя новго сайта
+     */
+    protected DotCom(final String name) {
         this.name = name;
     }
 
-    void setLocationCells(ArrayList<String> location) {
+    /**
+     *
+     * @param location присваиваем персональное место на игровом поле конкретному сайту
+     */
+    protected void setLocationCells(ArrayList<String> location) {
         locationCells = location;
     }
 
-    String checkYourSelf(final String userGuess) {
+    /**
+     *
+     * @param userGuess ход пользователя
+     * @return результат хода пользователя по отнашению к конкретному сайту
+     */
+    protected String checkYourSelf(final String userGuess) {
         String result = "Blunder";
 
         int index = locationCells.indexOf(userGuess);
