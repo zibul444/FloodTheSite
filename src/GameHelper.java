@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  *  class Helper
  */
-class GameHelper {
+final class GameHelper {
     private final String alphabet = "abcdefg";
     private final byte gridLength = 7;
     private final byte gridSize = (byte)(gridLength * gridLength);
@@ -85,7 +85,7 @@ class GameHelper {
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            System.out.println(" cord " + x + " = " + alphaCells.get(x-1)); // Chit
+            System.out.println(" coord " + x + " = " + alphaCells.get(x-1)); // Chit
         }
         return alphaCells;
     }

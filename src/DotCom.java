@@ -3,8 +3,9 @@ import java.util.ArrayList;
 /**
  * Описание свойств класса DotCom
  */
-class DotCom {
+final class DotCom {
     private final String name;
+
     private ArrayList<String> locationCells;
 
     /**
@@ -36,9 +37,9 @@ class DotCom {
         if (index >= 0){
             locationCells.remove(index);
             if (locationCells.isEmpty()){
-                result = " Потопил " + name + "!";
+                result = " Drowned " + name + "!";
             } else {
-                result = "Попал в " + name;
+                result = "Has got, hit in " + name;
             }
         }
         return result;

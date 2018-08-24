@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * Игровой класс
  */
-class DotComBust {
+final class DotComBust {
     private GameHelper helper = new GameHelper();
     private ArrayList<DotCom> dotComList = new ArrayList<>(3);
     private byte numOfGuesses = 0;
