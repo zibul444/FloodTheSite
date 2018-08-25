@@ -10,11 +10,15 @@ class DotComTest {
 
     @Test
     void testCheckYourSelf() {
-        String name = "Test.com";
-        String expected = " Drowned " + name + "!", actual = getResult(name);
+        String name = "Test.com", expected = " Потопил " + name + "!", actual = getResult(name);
         assertTrue(actual.equals(expected), "Сайт не был там где его поставили!");
     }
 
+    /**
+     * Метод возвращает
+     * @param name
+     * @return
+     */
     private String getResult(String name) {
         String actual = "";
         DotCom dotCom = new DotCom(name);
@@ -22,7 +26,7 @@ class DotComTest {
         dotCom.setLocationCells((ArrayList)location.clone());
 
         for (String s : location) {
-            actual = dotCom.checkYourSelf(s);
+            System.out.print(actual = dotCom.checkYourSelf(s));
         }
         return actual;
     }

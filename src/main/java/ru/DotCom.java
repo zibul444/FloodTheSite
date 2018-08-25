@@ -38,7 +38,7 @@ final class DotCom {
         if (index >= 0){
             locationCells.remove(index);
             if (locationCells.isEmpty()){
-                result = "Потопил " + name + "!";
+                result = " Потопил " + name + "!";
             } else {
                 result = " Попал в" + name;
             }
