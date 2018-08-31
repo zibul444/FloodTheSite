@@ -6,11 +6,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *  class Helper
  */
-final class GameHelper {
+class GameHelper {
+    private Logger logger = Logger.getLogger(GameHelper.class.getName());
+
     private final String alphabet = "abcdefg";
     private final byte gridLength = 7;
     private final byte gridSize = (byte)(gridLength * gridLength);
@@ -26,14 +30,16 @@ final class GameHelper {
      */
     protected String getUserInput(final String prompt, InputStream in){
         String inputLine = null;
-        System.out.print(prompt + " ");
+//        System.out.println(prompt + " ");
+        logger.log(Level.ALL, prompt + " ");
 
         try {
             is = new BufferedReader(new InputStreamReader(in));
             inputLine = is.readLine();
             if (inputLine.length() == 0) return null;
         }catch (IOException e){
-            System.out.println("IOException " + e);
+//            System.out.println("IOException " + e);
+            logger.log(Level.ALL, "IOException " + e);
         }
         return inputLine.toLowerCase();
     }
@@ -89,7 +95,7 @@ final class GameHelper {
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            System.out.println(" coord " + x + " = " + alphaCells.get(x-1)); // Chit
+            logger.log(Level.ALL, " coord " + x + " = " + alphaCells.get(x-1)); // Chit
         }
         return alphaCells;
     }

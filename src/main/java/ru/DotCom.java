@@ -1,10 +1,11 @@
 package ru;
+
 import java.util.ArrayList;
 
 /**
  * Описание свойств класса ru.DotCom
  */
-final class DotCom {
+class DotCom {
     private final String name;
 
     private ArrayList<String> locationCells;

@@ -3,10 +3,15 @@ package ru;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DotComTest {
+
+        Logger logger = Logger.getLogger(DotComTest.class.getName());
+
 
     @Test
     void testCheckYourSelf() {
@@ -26,8 +31,10 @@ class DotComTest {
         dotCom.setLocationCells((ArrayList)location.clone());
 
         for (String s : location) {
-            System.out.print(actual = dotCom.checkYourSelf(s));
+//            System.out.print(actual = dotCom.checkYourSelf(s));
+            logger.log(Level.ALL, actual = dotCom.checkYourSelf(s));
         }
+
         return actual;
     }
 }

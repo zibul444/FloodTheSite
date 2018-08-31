@@ -1,11 +1,14 @@
 package ru;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Игровой класс
  */
 final class DotComBust {
+    private Logger logger = Logger.getLogger(DotComBust.class.getName());
     private GameHelper helper = new GameHelper();
     private ArrayList<DotCom> dotComList = new ArrayList<DotCom>(3);
     private byte numOfGuesses = 0;
@@ -61,21 +64,21 @@ final class DotComBust {
                 break;
             }
         }
-        System.out.println(result);
+        logger.log(Level.ALL, result);
     }
 
     /**
      * Конец игры, вывод результатов.
      */
     private void finishGame(){
-        System.out.println("Game over, mission accomplished.");
+        logger.log(Level.ALL, "Game over, mission accomplished.");
 
         if (numOfGuesses < 20){
-            System.out.println(" Congratulations, good game!!!");
-            System.out.println(" Your score is " + numOfGuesses + "!");
+            logger.log(Level.ALL, " Congratulations, good game!!!");
+            logger.log(Level.ALL, " Your score is " + numOfGuesses + "!");
         } else {
-            System.out.println("My grandmother plays better than you...");
-            System.out.println(" Your score is " + numOfGuesses + "...");
+            logger.log(Level.ALL, "My grandmother plays better than you...");
+            logger.log(Level.ALL, " Your score is " + numOfGuesses + "...");
         }
     }
 }
