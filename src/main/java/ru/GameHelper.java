@@ -1,19 +1,20 @@
 package ru;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *  class Helper
  */
 class GameHelper {
-    private Logger logger = Logger.getLogger(GameHelper.class.getName());
+    private static final Logger logger = LogManager.getLogger(GameHelper.class);
 
     private final String alphabet = "abcdefg";
     private final byte gridLength = 7;
@@ -30,16 +31,14 @@ class GameHelper {
      */
     protected String getUserInput(final String prompt, InputStream in){
         String inputLine = null;
-//        System.out.println(prompt + " ");
-        logger.log(Level.ALL, prompt + " ");
+        logger.info(prompt + " ");
 
         try {
             is = new BufferedReader(new InputStreamReader(in));
             inputLine = is.readLine();
             if (inputLine.length() == 0) return null;
         }catch (IOException e){
-//            System.out.println("IOException " + e);
-            logger.log(Level.ALL, "IOException " + e);
+            logger.fatal( "IOException getUserInput" , e);
         }
         return inputLine.toLowerCase();
     }
@@ -95,7 +94,8 @@ class GameHelper {
 
             alphaCells.add(temp.concat(Integer.toString(row)));
             x++;
-            logger.log(Level.ALL, " coord " + x + " = " + alphaCells.get(x-1)); // Chit
+
+            logger.debug(" coord " + x + " = " + alphaCells.get(x - 1)); // Chit
         }
         return alphaCells;
     }

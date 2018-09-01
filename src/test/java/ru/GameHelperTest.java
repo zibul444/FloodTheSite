@@ -1,7 +1,6 @@
 package ru;
 
 import org.junit.jupiter.api.Test;
-import ru.GameHelper;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -12,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class GameHelperTest {
-        static GameHelper helper = new GameHelper();
+        GameHelper helper = new GameHelper();
 
 
 //    @Disabled
     @Test
     void testGetUserInput(){
-//        InputStream stream = new ByteInputStream();
+
         String expected = "123";
         InputStream stream = new ByteArrayInputStream(expected.getBytes(Charset.forName("UTF-8")));
 

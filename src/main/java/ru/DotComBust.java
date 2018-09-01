@@ -1,14 +1,15 @@
 package ru;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * Игровой класс
  */
-final class DotComBust {
-    private Logger logger = Logger.getLogger(DotComBust.class.getName());
+class DotComBust {
+    private static final Logger logger = LogManager.getLogger(DotComBust.class);
     private GameHelper helper = new GameHelper();
     private ArrayList<DotCom> dotComList = new ArrayList<DotCom>(3);
     private byte numOfGuesses = 0;
@@ -17,7 +18,8 @@ final class DotComBust {
      * main метод
      * @param args пораметры не используются в даннй версии
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
+//        LogManager.getLogManager().readConfiguration(DotComBust.class.getResourceAsStream("src/main/logging.properties"));
         DotComBust game = new DotComBust();
         game.setUpGame();
         game.startPlaying();
@@ -64,21 +66,21 @@ final class DotComBust {
                 break;
             }
         }
-        logger.log(Level.ALL, result);
+        logger.info(result);
     }
 
     /**
      * Конец игры, вывод результатов.
      */
     private void finishGame(){
-        logger.log(Level.ALL, "Game over, mission accomplished.");
+        logger.info("Game over, mission accomplished.");
 
         if (numOfGuesses < 20){
-            logger.log(Level.ALL, " Congratulations, good game!!!");
-            logger.log(Level.ALL, " Your score is " + numOfGuesses + "!");
+            logger.info(" Congratulations, good game!!!");
+            logger.info(" Your score is " + numOfGuesses + "!");
         } else {
-            logger.log(Level.ALL, "My grandmother plays better than you...");
-            logger.log(Level.ALL, " Your score is " + numOfGuesses + "...");
+            logger.info("My grandmother plays better than you...");
+            logger.info(" Your score is " + numOfGuesses + "...");
         }
     }
 }

@@ -14,7 +14,7 @@ class DotCom {
      *
      * @param name имя новго сайта
      */
-    protected DotCom(final String name) {
+    DotCom(final String name) {
         this.name = name;
     }
 
@@ -22,7 +22,7 @@ class DotCom {
      *
      * @param location присваиваем персональное место на игровом поле конкретному сайту
      */
-    protected void setLocationCells(ArrayList<String> location) {
+    void setLocationCells(ArrayList<String> location) {
         locationCells = location;
     }
 
@@ -31,7 +31,7 @@ class DotCom {
      * @param userGuess ход пользователя
      * @return результат хода пользователя по отнашению к конкретному сайту
      */
-    protected String checkYourSelf(final String userGuess) {
+    String checkYourSelf(final String userGuess) {
         String result = "Промах";
 
         int index = locationCells.indexOf(userGuess);
